@@ -1,0 +1,97 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
+
+" " let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Solarized'
+Plugin 'ctrlp.vim'
+Plugin 'python-mode-klen'
+Plugin 'vim-flake8'
+
+" Plugin 'nerdtree-ack'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+" "filetype plugin on
+" "
+" " Brief help
+" " :PluginList       - lists configured plugins
+" " :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" " :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" " :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+" "
+" " see :h vundle for more details or wiki for FAQ
+" " Put your non-Plugin stuff after this line
+
+syntax on
+filetype on
+filetype plugin indent on
+
+set background=dark
+colors solarized
+
+set relativenumber
+set colorcolumn=91
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set autoindent
+set smarttab
+set foldmethod=indent
+set mouse=a
+
+" open new tab, close tab, got tab to right/left
+nmap tt <esc>:tabnew<cr>
+nmap qt <esc>:tabclose<cr>
+nmap <  <esc>:tabp<cr>
+nmap >  <esc>:tabn<cr>
+
+" splits, move between splits (control||capslock + hjkl) ###############
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+
+" change leader key from \ to ,
+let mapleader = ","
+let maplocalleader = ","
+
+" splits
+nmap <leader>v :vsplit<cr>
+nmap <leader>s :split<cr>
+
+" " NEfRDTREE {{{
+" let NERDTreeChDirMode=2
+" map <leader>m :NERDTreeToggle %<CR>    " NerdtreeToggle
+" map <leader>n :NERDTreeToggle<CR>      " NerdtreeToggle
+" let g:NERDTreesdfDirArrows=0                   " crucial to make it work
+
+" netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+map <leader>n :Lexplore<CR>      
+
+" ctrlp settings
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
